@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/profilance-test/static/css/main.7f289040.css",
+    "main.js": "/profilance-test/static/js/main.f0910303.js",
+    "index.html": "/profilance-test/index.html",
+    "main.7f289040.css.map": "/profilance-test/static/css/main.7f289040.css.map",
+    "main.f0910303.js.map": "/profilance-test/static/js/main.f0910303.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7f289040.css",
+    "static/js/main.f0910303.js"
+  ]
+}
