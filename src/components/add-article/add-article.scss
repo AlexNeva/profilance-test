@@ -1,0 +1,14 @@
+.add-article {
+  display: flex;
+  flex-direction: column;
+
+  &__btn {
+    margin-left: auto;
+  }
+
+  &__error {
+    margin-top: 0.5em;
+    font-size: 0.85rem;
+    color: rgb(255, 69, 69);
+  }
+}

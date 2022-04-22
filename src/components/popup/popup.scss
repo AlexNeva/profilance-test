@@ -1,0 +1,39 @@
+.popup {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  overflow-y: auto;
+  // display: none;
+
+  &__wrapper {
+    margin: auto 1rem;
+    background-color: #fff;
+    width: 100%;
+    max-width: 40rem;
+    border-radius: 0.75rem;
+    
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+
+  &__close {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+  }
+
+  &__body {
+    padding: 1rem;
+  }
+}

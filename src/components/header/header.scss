@@ -1,0 +1,40 @@
+.header {
+  padding: 1.5rem 0;
+  background-color: var(--primary);
+  &__nav {
+
+  }
+
+  &__links {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+
+    
+  }
+
+  &__item {
+    
+    &:nth-child(3) {
+      margin-left: auto;
+      
+    }
+
+    &:nth-child(2) {
+      margin-left: 3rem;
+    }
+  }
+
+  &__link {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.2s ease-in-out 0s;
+
+    &:hover {
+      color: var(--gray);
+    }
+  }
+}
