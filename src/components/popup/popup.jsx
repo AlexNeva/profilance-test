@@ -1,31 +1,21 @@
-import React, { useEffect, useMemo, useRef } from 'react';
+import React, { useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { setActive } from '../../store/popupSlice';
 import './popup.scss';
 
 
 const popupRoot = document.getElementById('popup');
 
-const Popup = ({ title, children }) => {
+const Popup = ({ title, isOpen, setOpen, children }) => {
 
   const popupRef = useRef(null);
   const closeRef = useRef(null);
 
-  const popups = useSelector(state => state.popups.popups);
-
-  const { type } = popups.find(popup => popup.isActive) || '';
-
-  const dispatch = useDispatch()
-
   const closePopup = (evt) => {
     if (evt.target === popupRef.current || evt.target === closeRef.current) {
-      document.querySelector('body').classList.remove('lock');
-      dispatch(setActive(type))
+      document.querySelector('body').classList.toggle('lock');
+      setOpen(false);
     }
   }
-
-  const element = useMemo(() => document.createElement('div'), []);
 
   const PopupWindow = () => {
     return (
@@ -53,15 +43,9 @@ const Popup = ({ title, children }) => {
     )
   }
 
-  useEffect(() => {
-    popupRoot.appendChild(element);
-
-    return () => {
-      popupRoot.removeChild(element);
-    }
-  })
-
-  return createPortal(<PopupWindow />, element);
+  if (isOpen) {
+    return createPortal(<PopupWindow />, popupRoot);
+  }
 }
 
 export default Popup;

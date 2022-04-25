@@ -3,10 +3,9 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { addArticle } from '../../store/articlesSlice';
-import { setActive } from '../../store/popupSlice';
 import './add-article.scss';
 
-const AddArticle = () => {
+const AddArticle = ({ setOpen }) => {
 
   const dispatch = useDispatch();
 
@@ -32,7 +31,8 @@ const AddArticle = () => {
 
   const onSubmitHandler = (obj) => {
     dispatch(addArticle(obj));
-    dispatch(setActive('create-article'));
+    setOpen(false);
+    document.querySelector('body').classList.toggle('lock');
   }
 
   return (

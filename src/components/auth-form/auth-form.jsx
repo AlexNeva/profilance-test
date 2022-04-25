@@ -5,9 +5,8 @@ import { users } from '../../mok/user';
 import './auth-form.scss';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../store/userSlice';
-import { setActive } from '../../store/popupSlice';
 
-const AuthForm = () => {
+const AuthForm = ({ setOpen }) => {
 
   const dispatch = useDispatch();
 
@@ -39,7 +38,8 @@ const AuthForm = () => {
         const { nickname, passw } = users[key];
         if (obj.nickname === nickname && obj.passw === passw) {
           dispatch(setUser({ ...obj, role: users[key].role }));
-          dispatch(setActive('auth'));
+          setOpen(false);
+          document.querySelector('body').classList.toggle('lock');
         }
 
         if (obj.nickname !== nickname || obj.passw !== passw) {
