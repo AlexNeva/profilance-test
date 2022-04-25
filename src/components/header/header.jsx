@@ -13,6 +13,7 @@ const Header = () => {
 
   const setActivePopup = (evt, type) => {
     evt.preventDefault();
+    document.querySelector('body').classList.add('lock');
     dispatch(setActive(type))
   }
 
